@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import './App.scss';
 
-function App() {
+export default function App() {
+  const [ show , setShow] = useState(false)
+  const video =  require("./assets/video/walkin-girl.mp4");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+          <div className="video">
+            <video src={video} loop muted autoPlay />
+            <div className="overlay" />
+          </div>
+
+          <div className={show ? "header" : "header not-show"}>
+              <div className="links">
+                  <div className="links__button">
+                      <button>
+                          Home
+                      </button>
+                  </div>
+                  <div className="links__button">
+                      <button>
+                          Shop
+                      </button>
+                  </div>
+                  <div className="links__button">
+                      <button>
+                          About us
+                      </button>
+                  </div>
+                  <div className="show__header" onClick={()=>setShow(!show)}>
+                      <button>
+                          Menu
+                      </button>
+                  </div>
+              </div>
+
+          </div>
+      </div>
   );
 }
-
-export default App;
