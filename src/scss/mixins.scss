@@ -1,0 +1,34 @@
+@mixin mobile-m {
+  @media (max-width: 395px) { @content; }
+}
+@mixin mobile-medium {
+  @media (max-width: 460px) { @content; }
+}
+@mixin mobile-large {
+  @media (max-width: 500px) { @content; }
+}
+@mixin mobile {
+  @media (max-width: 550px) { @content; }
+}
+@mixin tablet-sm {
+  @media (max-width: 600px) { @content; }
+}
+@mixin tablet-pc {
+  @media (max-width: 767px) { @content; }
+}
+@mixin tablet {
+  @media (max-width: 959px) { @content; }
+}
+@mixin desktop-sm {
+  @media (max-width: 1200px) { @content; }
+}
+@mixin desktop-md {
+  @media (max-width: 1560px) { @content; }
+}
+
+@mixin desktop {
+  @media (max-width: 1800px) { @content; }
+}
+@mixin only-tablet{
+  @media (min-width: 768px) and (max-width: 958px){ @content }
+}
