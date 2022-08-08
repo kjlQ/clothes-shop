@@ -1,41 +1,20 @@
-import React,{useState} from "react";
+import React from "react";
 import './App.scss';
+import Home from './pages/Home'
+import Shop from './pages/Shop'
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+
 
 export default function App() {
-  const [ show , setShow] = useState(false)
-  const video =  require("./assets/video/walkin-girl.mp4");
+
   return (
       <div className="App">
-          <div className="video">
-            <video src={video} loop muted autoPlay />
-            <div className="overlay" />
-          </div>
-
-          <div className={show ? "header" : "header not-show"}>
-              <div className="links">
-                  <div className="links__button">
-                      <button>
-                          Home
-                      </button>
-                  </div>
-                  <div className="links__button">
-                      <button>
-                          Shop
-                      </button>
-                  </div>
-                  <div className="links__button">
-                      <button>
-                          About us
-                      </button>
-                  </div>
-                  <div className="show__header" onClick={()=>setShow(!show)}>
-                      <button>
-                          Menu
-                      </button>
-                  </div>
-              </div>
-
-          </div>
+          <BrowserRouter >
+              <Routes >
+                  <Route path="/" element={<Home />} />
+                  <Route path="/shop" element={<Shop />} />
+              </Routes>
+          </BrowserRouter>
       </div>
   );
 }

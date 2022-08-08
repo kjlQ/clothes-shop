@@ -12,9 +12,46 @@
 ::-webkit-scrollbar {
   width: 0;
 }
+
+@keyframes typewriter{
+  0%{
+    width: 0;
+    border-right: 2px solid rgba(255,255,255,.75);
+  }
+  99%{
+    width: 5.8em;
+    border-right: 2px solid rgba(255,255,255,.75);
+  }
+  100%{
+    border-right: 0;
+    width: 5.8em;
+  }
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
 .video {
   position: absolute;
   width: 100%;
+  &__text {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Kaushan Script', cursive;
+    font-size: 100px;
+    color: #ffffff;
+    animation: typewriter 1s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms steps(44) infinite ;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
   video {
     width: 100%;
@@ -57,8 +94,17 @@
     font-size: 20px;
     background-color:unset;
     border: 0;
-    cursor: pointer;
     letter-spacing: .5px;
+    a {
+      color: #fff;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 20px;
+      background-color:unset;
+      border: 0;
+      cursor: pointer;
+      letter-spacing: .5px;
+      text-decoration: none;
+    }
   }
   .show__header {
     position: absolute;
@@ -84,9 +130,52 @@
     button {
       color: #1b1b1b;
       letter-spacing: .5px;
+      cursor: pointer;
+
     }
   }
 }
 .not-show {
   top: -60px;
+}
+
+.shop {
+  &__container {
+    max-width: 1200px;
+    justify-content: center;
+    display: flex;
+    margin: auto;
+
+  }
+  .products{
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    &__item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: auto;
+      border: 1px solid rgb(238, 238, 238);
+      img {
+        width: 100%;
+      }
+      &__text {
+        padding: 10px 10px 5px;
+        .title {
+          letter-spacing: .5px;
+          font-size: 18px;
+        }
+        .brand {
+          letter-spacing: .5px;
+          color: rgb(119, 119,119);
+        }
+      }
+    }
+  }
 }
