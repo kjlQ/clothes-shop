@@ -2,25 +2,28 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import Loader from "../components/Loader";
+import {useDispatch, useSelector} from "react-redux";
+import {IProducts} from "../types";
 
 
 export default function Shop() {
-    const [products , setProducts] = useState([])
-    const [loading , setLoading] = useState(true)
+    const {products,loading} = useSelector((state:IProducts) => state)
+    const dispatch = useDispatch()
     useEffect(()=> {
         async function fetchData() {
             const data = await axios.get('https://62b1890ec7e53744afbb3fa1.mockapi.io/clothes')
                 .then(res=> {
-                    setProducts(res.data)
-                    setLoading(false)
+                    dispatch({type:'setClothes',payload:res.data})
+                    dispatch({type:'setLoading',payload:false})
                 })
                 .catch((e) => {
                     console.log(e)
-                    setLoading(false);
+                    dispatch({type:'setLoading',payload:false})
                 });
         }
         fetchData()
     },[])
+    console.log(products)
     return(
         <div className="shop">
             <div className="shop__container">
@@ -168,8 +171,6 @@ export default function Shop() {
                             [...new Array(8)].map(( _,index ) => <Loader key={index} />)
                                 :
                             products && products.map((item:any)=><ProductCard {...item} />)
-                            // [...new Array(8)].map(( _,index ) => <Loader key={index} />)
-
                     }
                 </div>
             </div>

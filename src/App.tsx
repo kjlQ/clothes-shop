@@ -5,9 +5,7 @@ import Shop from './pages/Shop'
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./components/Header";
 
-
 export default function App() {
-
   return (
       <div className="App">
           <BrowserRouter >
