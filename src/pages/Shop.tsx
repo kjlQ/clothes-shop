@@ -1,15 +1,23 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
-import {Link} from "react-router-dom";
+import Loader from "../components/Loader";
 
 
 export default function Shop() {
     const [products , setProducts] = useState([])
+    const [loading , setLoading] = useState(true)
     useEffect(()=> {
         async function fetchData() {
-            const data = await axios.get('https://62b1890ec7e53744afbb3fa1.mockapi.io/clothes').then(res=>setProducts(res.data))
-            console.log(data)
+            const data = await axios.get('https://62b1890ec7e53744afbb3fa1.mockapi.io/clothes')
+                .then(res=> {
+                    setProducts(res.data)
+                    setLoading(false)
+                })
+                .catch((e) => {
+                    console.log(e)
+                    setLoading(false);
+                });
         }
         fetchData()
     },[])
@@ -155,7 +163,14 @@ export default function Shop() {
                     </div>
                 </div>
                 <div className="products">
-                    {products && products.map((item:any)=><ProductCard {...item} />)}
+                    {
+                        loading?
+                            [...new Array(8)].map(( _,index ) => <Loader key={index} />)
+                                :
+                            products && products.map((item:any)=><ProductCard {...item} />)
+                            // [...new Array(8)].map(( _,index ) => <Loader key={index} />)
+
+                    }
                 </div>
             </div>
         </div>
