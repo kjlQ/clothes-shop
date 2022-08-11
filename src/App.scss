@@ -52,6 +52,9 @@
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
+    @include tablet-sm {
+      font-size: 17vw;
+    }
   }
 
   video {
