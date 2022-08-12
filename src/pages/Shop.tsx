@@ -3,15 +3,19 @@ import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import Loader from "../components/Loader";
 import {useDispatch, useSelector} from "react-redux";
-import {IProducts} from "../types";
+import {IReducers} from "../types";
+import Checkbox from "../components/checkbox";
 
 
 export default function Shop() {
-    const {products,loading} = useSelector((state:IProducts) => state)
+    const {products,loading} = useSelector((state:IReducers) => state.clothesReducer)
+    const {brand} = useSelector((state:IReducers) => state.filterReducer)
     const dispatch = useDispatch()
+    console.log(brand)
     useEffect(()=> {
+        const brandFactory = brand.map((item:any,i:any)=>`${item}${i+1!==brand.length ? `|`:'' }`).join('')
         async function fetchData() {
-            const data = await axios.get('https://62b1890ec7e53744afbb3fa1.mockapi.io/clothes')
+            const data = await axios.get(`https://62b1890ec7e53744afbb3fa1.mockapi.io/clothes?brand=${brandFactory}`)
                 .then(res=> {
                     dispatch({type:'setClothes',payload:res.data})
                     dispatch({type:'setLoading',payload:false})
@@ -22,8 +26,7 @@ export default function Shop() {
                 });
         }
         fetchData()
-    },[])
-    console.log(products)
+    },[brand])
     return(
         <div className="shop">
             <div className="shop__container">
@@ -33,70 +36,10 @@ export default function Shop() {
                         <h2>
                             Brands
                         </h2>
-
-                        <div className="checkbox">
-                            <input type="checkbox" className="check"/>
-                            <label htmlFor="check7" className="label">
-                                <svg width="30" height="30" viewBox="0 0 100 100">
-                                    <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"/>
-                                    <g transform="translate(0,-952.36218)">
-                                        <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                        <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                    </g>
-                                </svg>
-                                <span>American Eagle</span>
-                            </label>
-                        </div>
-
-                        <div className="checkbox">
-                            <input type="checkbox" name={'Hollister'} className="check"/>
-                            <label htmlFor="check7" className="label">
-                                <svg width="30" height="30" viewBox="0 0 100 100">
-                                    <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"/>
-                                    <g transform="translate(0,-952.36218)">
-                                        <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                        <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                    </g>
-                                </svg>
-                                <span>Hollister</span>
-                            </label>
-                        </div>
-
-                        <div className="checkbox">
-                            <input type="checkbox" className="check"/>
-                            <label htmlFor="check7" className="label">
-                                <svg width="30" height="30" viewBox="0 0 100 100">
-                                    <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"/>
-                                    <g transform="translate(0,-952.36218)">
-                                        <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                        <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                    </g>
-                                </svg>
-                                <span>Pull & Bear</span>
-                            </label>
-                        </div>
-
-                        <div className="checkbox">
-                            <input type="checkbox" className="check"/>
-                            <label htmlFor="check7" className="label">
-                                <svg width="30" height="30" viewBox="0 0 100 100">
-                                    <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"/>
-                                    <g transform="translate(0,-952.36218)">
-                                        <path d="m 13,983 c 33,6 40,26 55,48 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                        <path d="M 75,970 C 51,981 34,1014 25,1031 " stroke="black" strokeWidth="3"
-                                              className="path1" fill="none"/>
-                                    </g>
-                                </svg>
-                                <span>Zara</span>
-                            </label>
-                        </div>
+                        <Checkbox title="American Eagle"/>
+                        <Checkbox title="Hollister"/>
+                        <Checkbox title="Pull & Bear"/>
+                        <Checkbox title="Zara"/>
                     </div>
 
                     <div className="category">
