@@ -4,7 +4,7 @@ import ProductCard from "../components/ProductCard";
 import Loader from "../components/Loader";
 import {useDispatch, useSelector} from "react-redux";
 import {IReducers} from "../types";
-import Checkbox from "../components/checkbox";
+import Checkbox from "../components/Checkbox";
 import Sort from "../components/Sort";
 import Filter from "../components/Filter";
 

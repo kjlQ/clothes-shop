@@ -1,5 +1,5 @@
 import React from "react";
-import Checkbox from "./checkbox";
+import Checkbox from "./Checkbox";
 
 const Brands = () => {
     return(

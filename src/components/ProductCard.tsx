@@ -5,7 +5,9 @@ const ProductCard = ({brand ,category , id , imageURL , name , price} :any) => {
     return (
         <Link to={"#"} >
             <div className="products__item">
-                <img src={imageURL} alt=""/>
+                <div className="products__item__image">
+                    <img src={imageURL} alt=""/>
+                </div>
                 <div className="products__item__text">
                     <div className="title">
                         {name}

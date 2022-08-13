@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 
 const options = [
     { value: 'price', label: 'Price' },
+    { value: 'name', label: 'Alphabet' },
 ]
 
 const Sort = () => {
