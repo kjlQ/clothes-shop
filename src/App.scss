@@ -4,15 +4,25 @@
 @import "scss/mixins";
 @import 'scss/Shop';
 @import 'scss/Home';
+@import 'scss/Card';
 @import 'scss/components/Checkbox';
 @import 'scss/components/Header';
+@import 'scss/components/AddButton';
 * {
   padding: 0;
   margin: 0;
   //font-family: 'Permanent Marker', cursive;
   //font-family: 'Kaushan Script', cursive;
   font-family: 'Staatliches', cursive;
+  letter-spacing: .6px;
+}
 
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar-track {

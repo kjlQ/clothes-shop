@@ -4,7 +4,7 @@ export interface IProducts {
     products:clothes[]
     loading:boolean
 }
-type clothes = {
+export type clothes = {
     price: string
     brand: string
     category: string
