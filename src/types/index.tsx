@@ -5,15 +5,18 @@ export interface IProducts {
     loading:boolean
 }
 type clothes = {
-    amount: string
+    price: string
     brand: string
     category: string
     id: string
     imageURL: string
     name: string
 }
+
 export interface IFilter {
-    brand:any,
+    brand:string[],
+    category:string[],
+    sort_by:string,
 }
 
 export interface IReducers {

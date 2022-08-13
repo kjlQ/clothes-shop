@@ -1,10 +1,11 @@
 import React from 'react'
 import {useDispatch} from "react-redux";
-const Checkbox = ({title}:any) => {
+const Checkbox = ({type,title}:any) => {
     const dispatch = useDispatch()
 
     const handleBrand = () => {
-        dispatch({type:'changeBrand',payload:title})
+        type==='brand'&& dispatch({type:'changeBrand',payload:title.split(" ")[0]})
+        type==='category'&& dispatch({type:'changeCategory',payload:title.split(" ")[0]})
     }
 
     return (

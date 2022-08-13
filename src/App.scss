@@ -211,6 +211,21 @@ label {
     @include mobile {
       flex-direction: column;
     }
+    .sort__prod {
+      .sort {
+        display: flex;
+        justify-content: end;
+        margin:  0 0 20px;
+        &__by {
+          &__option {
+            cursor: pointer;
+          }
+        }
+        &__select {
+          width: 200px;
+        }
+      }
+    }
   }
   .filter {
     min-width: 190px;
