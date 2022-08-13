@@ -28,7 +28,6 @@ export default function Shop() {
         }
         fetchData()
     },[brand,sort_by])
-    console.log(sort_by)
     return(
         <div className="shop">
             <div className="shop__container">

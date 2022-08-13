@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const ProductCard = ({brand ,category , id , imageURL , name , price} :any) => {
     return (
-        <Link to={"#"} >
+        <Link to={`/product/${id}`} >
             <div className="products__item">
                 <div className="products__item__image">
                     <img src={imageURL} alt=""/>

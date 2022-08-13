@@ -3,7 +3,7 @@ import React from "react";
 export default function Home() {
     const video =  require("../assets/video/walkin-girl.mp4");
     return (
-        <>
+        <div className="home">
             <div className="video">
                 <video src={video} loop muted autoPlay />
                 <div className="overlay" />
@@ -11,6 +11,6 @@ export default function Home() {
                     Clothes Scope
                 </div>
             </div>
-        </>
+        </div>
     )
 }

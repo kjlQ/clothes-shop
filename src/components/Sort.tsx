@@ -13,7 +13,6 @@ const Sort = () => {
     useEffect(()=>{
         dispatch({type:'changeSortBy',payload:selectedOption.value})
     },[selectedOption])
-    console.log(selectedOption.value)
     return (
         <div className="sort">
             {/*@ts-ignore*/}
