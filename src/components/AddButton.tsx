@@ -1,8 +1,9 @@
-export default function AddButton() {
+export default function AddButton({item}:any) {
+
     return (
-        <button className="button">
+        <button className="button" onClick={()=>console.log(item)}>
           <span className="button__text">
-            <span>buy staff</span>
+            <span>buy</span>
           </span>
             <svg className="button__svg" role="presentational" viewBox="0 0 600 600">
                 <defs>

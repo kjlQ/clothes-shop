@@ -113,11 +113,15 @@
       flex-direction: column;
       margin: auto;
       border: 1px solid rgb(238, 238, 238);
+      width: 202px;
+      @include mobile {
+        width: auto;
+      }
       &__image {
-        height: 290px;
-        width: 202px;
+        height: 270px;
         @include mobile {
           height: unset;
+          width: auto;
         }
       }
       img {
