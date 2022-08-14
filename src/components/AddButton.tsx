@@ -1,7 +1,24 @@
+import {useDispatch, useSelector} from "react-redux";
+import {IReducers} from "../types";
+
 export default function AddButton({item}:any) {
+    const dispatch = useDispatch()
+    const {cart} = useSelector((state:IReducers)=>state.cartReducer)
+    function addToCart(){
+        const itemPush = {
+            brand: item.brand,
+            category: item.category,
+            id: item.id,
+            imageURL: item.imageURL,
+            name: item.name,
+            price: item.price,
+        }
+        dispatch({type:"CART__ADD",payload:itemPush})
+    }
+    console.log(cart)
 
     return (
-        <button className="button" onClick={()=>console.log(item)}>
+        <button className="button" onClick={()=>addToCart()}>
           <span className="button__text">
             <span>buy</span>
           </span>
