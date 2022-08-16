@@ -1,34 +1,20 @@
 import {Link} from "react-router-dom";
 import React, {useState} from "react";
+import HeaderButton from "./HeaderButton";
 
 export default function Header() {
     const [ show , setShow] = useState(false)
+    function changeShow() {
+        setShow((prev:boolean)=>!prev)
+    }
     return(
-        <div className={show ? "header" : "header not-show"}>
+        <div className={`${!show && 'not-show'} header`}>
             <div className="links">
-                <div className="links__button">
-                    <button onClick={()=>setShow(!show)}>
-                        <Link to={'/'} >
-                            Home
-                        </Link>
-                    </button>
-                </div>
-                <div className="links__button">
-
-                    <button onClick={()=>setShow(!show)}>
-                        <Link to={'/shop'} >
-                            Shop
-                        </Link>
-                    </button>
-
-                </div>
-
-                <div className="links__button">
-                    <button onClick={()=>setShow(!show)} >
-                        About us
-                    </button>
-                </div>
-                <div className="show__header" onClick={()=>setShow(!show)}>
+                <HeaderButton action={changeShow} link={'/'} title={'Home'} />
+                <HeaderButton action={changeShow} link={'/shop'} title={'Shop'} />
+                <HeaderButton action={changeShow} link={'/'} title={'About us'} />
+                <HeaderButton action={changeShow} link={'/cart'} title={'Cart'} />
+                <div className="show__header" onClick={()=>changeShow()}>
                     <button>
                         Menu
                     </button>
