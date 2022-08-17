@@ -1,14 +1,16 @@
 import {ICart} from "../../types";
 const defaultState:ICart = {
     cart:[],
+    totalPrice:0,
+    changeQuantityItem:undefined,
 }
-function getProper(state:any,action:any) {
-    return state.cart.find((item:any)=>item.id === action.payload.id)
+function getProper(state:any,equals:any) {
+    return state.cart.find((item:any)=>item.id === equals)
 }
 export const cartReducer = (state=defaultState,action:any) => {
     switch (action.type) {
         case "CART__ADD" :
-            const findProperItem = getProper(state,action)
+            const findProperItem = getProper(state,action.payload.id)
             if(findProperItem) {
                 findProperItem.count++
                 return {...state}
@@ -17,6 +19,18 @@ export const cartReducer = (state=defaultState,action:any) => {
                     ...state,
                     cart: [...state.cart , {...action.payload , count:1} ]
                 }
+            }
+        case "TOTAL__PRICE" :
+            return {...state,totalPrice:action.payload}
+        case "CHANGE__QUANTITY__ID" :
+            return {...state,changeQuantityItem:action.payload}
+        case "CHANGE__QUANTITY__ITEM" :
+            const findProperItem1 = getProper(state,state.changeQuantityItem)
+            if(findProperItem1) {
+                findProperItem1.count = action.payload
+                return {...state}
+            } else {
+                return {...state}
             }
         default:
             return state

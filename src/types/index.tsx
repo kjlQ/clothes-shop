@@ -19,6 +19,9 @@ export interface IFilter {
 
 export interface ICart {
     cart:clothesCart[]
+    totalPrice:number
+    totalAmount?:number
+    changeQuantityItem?:any
 }
 
 export interface IReducers {
@@ -35,4 +38,5 @@ export type clothesCart = {
     imageURL: string
     name: string
     count: number
+    setShowOverlay?:any
 }

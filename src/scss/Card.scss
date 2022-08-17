@@ -35,17 +35,6 @@
         font-size: 20px;
         ul {
           display: flex;
-          li {
-            border-radius: 50%;
-            border: 1px solid rgba(119, 119, 119);
-            height: 40px;
-            width: 40px;
-            align-items: center;
-            display: flex;
-            justify-content: center;
-            margin: 0 10px;
-            cursor: pointer;
-          }
         }
       }
 

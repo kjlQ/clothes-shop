@@ -42,7 +42,7 @@ const Card = () => {
                         Select Size
                         <span>Size Chart</span>
                     </p>
-                    <div className="sizes">
+                    <div className="sizes round">
                         <ul>
                                 {availableSizes.map((size:string)=><li>{size}</li>)}
                         </ul>

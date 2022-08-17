@@ -67,7 +67,7 @@
       margin: 15px;
       width: 100%;
       position: relative;
-      .delete-position {
+      .delete {
         position: absolute;
         top: -8px;
         right: -3px;
@@ -84,6 +84,9 @@
         color: rgba(119, 119, 119);
       }
       .size-n-quantity {
+        .quantity {
+          cursor: pointer;
+        }
         button {
           padding: 3px 10px;
           border: 0px;

@@ -9,6 +9,7 @@
 @import 'scss/components/Checkbox';
 @import 'scss/components/Header';
 @import 'scss/components/AddButton';
+@import 'scss/components/Overlay';
 * {
   padding: 0;
   margin: 0;
@@ -24,6 +25,22 @@ li {
 
 a {
   text-decoration: none;
+}
+
+.round {
+  ul {
+    li {
+      border-radius: 50%;
+      border: 1px solid rgb(119, 119, 119);
+      height: 40px;
+      width: 40px;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  }
 }
 
 ::-webkit-scrollbar-track {
