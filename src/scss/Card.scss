@@ -28,11 +28,12 @@
         margin:5px 0;
         font-weight: 400;
       }
-      .select-size {
-        margin: 20px 0 10px;
-      }
       .sizes {
         font-size: 20px;
+        margin: 20px 0 0;
+        .selected-size{
+          background: rgb(119,119,119,0.2);
+        }
         ul {
           display: flex;
         }

@@ -4,13 +4,13 @@ const defaultState:ICart = {
     totalPrice:0,
     changeQuantityItem:undefined,
 }
-function getProper(state:any,equals:any) {
-    return state.cart.find((item:any)=>item.id === equals)
+function getProper(state:any,id:any,size:any) {
+    return state.cart.find((item:any)=>item.id === id && item.selectedSize === size)
 }
 export const cartReducer = (state=defaultState,action:any) => {
     switch (action.type) {
         case "CART__ADD" :
-            const findProperItem = getProper(state,action.payload.id)
+            const findProperItem = getProper(state,action.payload.id,action.payload.selectedSize)
             if(findProperItem) {
                 findProperItem.count++
                 return {...state}
@@ -25,15 +25,15 @@ export const cartReducer = (state=defaultState,action:any) => {
         case "CHANGE__QUANTITY__ID" :
             return {...state,changeQuantityItem:action.payload}
         case "CHANGE__QUANTITY__ITEM" :
-            const findProperItem1 = getProper(state,state.changeQuantityItem)
+            const findProperItem1 = getProper(state,state.changeQuantityItem.id,state.changeQuantityItem.selectedSize)
             if(findProperItem1) {
                 findProperItem1.count = action.payload
-                return {...state}
+                return {...state,cart:state.cart}
             } else {
-                return {...state}
+                return {...state,cart:state.cart}
             }
         case "REMOVE__ITEM" :
-            return {...state,cart:state.cart.filter(item=>item.id!==action.payload)}
+            return {...state,cart:state.cart.filter(item=>item.id !== action.payload.id || item.selectedSize !== action.payload.selectedSize)}
         default:
             return state
     }

@@ -3,11 +3,11 @@ import {useEffect} from "react";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 
-const CartPosition = ({imageURL,name,brand,count,price,setShowOverlay,id}:clothesCart) => {
+const CartPosition = ({imageURL,name,brand,count,price,setShowOverlay,id,selectedSize}:clothesCart) => {
     const dispatch=useDispatch()
     const setItem = () => {
         setShowOverlay(true)
-        dispatch({type:'CHANGE__QUANTITY__ID',payload:id})
+        dispatch({type:'CHANGE__QUANTITY__ID',payload:{id, selectedSize}})
     }
     return (
         <div className="cart__position">
@@ -15,7 +15,7 @@ const CartPosition = ({imageURL,name,brand,count,price,setShowOverlay,id}:clothe
                 <img className="cart__position-image" src={imageURL} alt=""/>
             </Link>
             <div className="info">
-                <div className="delete" onClick={()=>dispatch({type:'REMOVE__ITEM',payload:id})}>
+                <div className="delete" onClick={()=>dispatch({type:'REMOVE__ITEM',payload:{id,selectedSize}})}>
                     <span>✕</span>
                 </div>
                 <div className="title">
@@ -26,7 +26,7 @@ const CartPosition = ({imageURL,name,brand,count,price,setShowOverlay,id}:clothe
                 </div>
                 <div className="size-n-quantity">
                     <button>
-                        Size:L
+                        Size:{selectedSize}
                     </button>
                     <button className="quantity" onClick={()=>setItem()}>
                         Quantity : {count}

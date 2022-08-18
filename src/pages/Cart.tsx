@@ -12,7 +12,7 @@ const Cart = () => {
     useEffect(()=> {
         const total = cart.reduce((sum,obj)=>sum+(obj.count*Number(obj.price)),0)
         dispatch({type:'TOTAL__PRICE',payload:total})
-    },[showOverlay])
+    },[showOverlay,cart])
     if(!cart.length) {
         return(
             <img className="empty-cart" src={emptyImage} alt=""/>

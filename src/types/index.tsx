@@ -21,7 +21,7 @@ export interface ICart {
     cart:clothesCart[]
     totalPrice:number
     totalAmount?:number
-    changeQuantityItem?:any
+    changeQuantityItem:any
 }
 
 export interface IReducers {
@@ -39,4 +39,5 @@ export type clothesCart = {
     name: string
     count: number
     setShowOverlay?:any
+    selectedSize:string
 }

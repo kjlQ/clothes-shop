@@ -8,7 +8,6 @@ const Overlay = ({setShowOverlay}:IOverlay) => {
     const [quantity,setQuantity] = useState<number>(0)
     const dispatch = useDispatch()
     const {changeQuantityItem,cart} = useSelector((state:IReducers)=>state.cartReducer)
-
     const numberClick = (index:number) => {
         setQuantity(index+1)
         setTimeout(()=> {
