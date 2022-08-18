@@ -32,6 +32,8 @@ export const cartReducer = (state=defaultState,action:any) => {
             } else {
                 return {...state}
             }
+        case "REMOVE__ITEM" :
+            return {...state,cart:state.cart.filter(item=>item.id!==action.payload)}
         default:
             return state
     }

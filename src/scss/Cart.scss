@@ -100,3 +100,11 @@
     }
   }
 }
+.empty-cart {
+  margin: 50px auto;
+  display: block;
+  @include tablet-sm {
+    margin: 100px auto;
+    width: 90%;
+  }
+}

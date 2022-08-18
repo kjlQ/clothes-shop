@@ -41,7 +41,6 @@
   margin: 30px 0 0;
   border: none;
   outline: none;
-  background-color: purple;
   padding: 1rem 90px 1rem 2rem;
   position: relative;
   border-radius: 8px;
@@ -52,6 +51,10 @@
   font-family: "Lato", sans-serif;
   cursor: pointer;
   box-shadow: rgba(0, 9, 61, 0.2) 0px 4px 8px 0px;
+  @include mobile-medium {
+    display: flex;
+    margin: 30px auto;
+  }
 }
 
 .button:active {

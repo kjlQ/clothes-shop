@@ -15,6 +15,11 @@
     padding: 20px;
     border-radius: 10px;
     position:relative;
+    @include mobile-medium {
+      width: 85%;
+      height: auto;
+      margin: auto;
+    }
     h1 {
       text-align: center;
     }

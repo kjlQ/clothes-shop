@@ -1,6 +1,7 @@
 import {clothesCart} from "../types";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
+import {Link} from "react-router-dom";
 
 const CartPosition = ({imageURL,name,brand,count,price,setShowOverlay,id}:clothesCart) => {
     const dispatch=useDispatch()
@@ -10,9 +11,11 @@ const CartPosition = ({imageURL,name,brand,count,price,setShowOverlay,id}:clothe
     }
     return (
         <div className="cart__position">
-            <img className="cart__position-image" src={imageURL} alt=""/>
+            <Link to={`/product/${id}`} >
+                <img className="cart__position-image" src={imageURL} alt=""/>
+            </Link>
             <div className="info">
-                <div className="delete">
+                <div className="delete" onClick={()=>dispatch({type:'REMOVE__ITEM',payload:id})}>
                     <span>✕</span>
                 </div>
                 <div className="title">

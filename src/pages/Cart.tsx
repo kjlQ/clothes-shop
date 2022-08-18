@@ -3,6 +3,7 @@ import {clothesCart, IReducers} from "../types";
 import CartPosition from "../components/CartPosition";
 import {useEffect, useState} from "react";
 import Overlay from "../components/Overlay";
+const emptyImage = require('../assets/image/empty-cart.png')
 
 const Cart = () => {
     const [showOverlay , setShowOverlay] = useState(false)
@@ -12,6 +13,11 @@ const Cart = () => {
         const total = cart.reduce((sum,obj)=>sum+(obj.count*Number(obj.price)),0)
         dispatch({type:'TOTAL__PRICE',payload:total})
     },[showOverlay])
+    if(!cart.length) {
+        return(
+            <img className="empty-cart" src={emptyImage} alt=""/>
+        )
+    }
     return (
         <div className="cart">
             {showOverlay && <Overlay setShowOverlay={setShowOverlay} />}
