@@ -10,10 +10,15 @@ const Cart = () => {
     const {cart,totalPrice} = useSelector((state:IReducers)=>state.cartReducer)
     const dispatch = useDispatch()
     useEffect(()=> {
+        dispatch({type:"GET__LOCAL__STORAGE",payload:JSON.parse(localStorage.getItem('cart') || '')})
+    },[])
+    useEffect(()=> {
         const total = cart.reduce((sum,obj)=>sum+(obj.count*Number(obj.price)),0)
         dispatch({type:'TOTAL__PRICE',payload:total})
+        localStorage.setItem("cart",JSON.stringify(cart))
     },[showOverlay,cart])
-    if(!cart.length) {
+
+    if(!cart[0]) {
         return(
             <img className="empty-cart" src={emptyImage} alt=""/>
         )

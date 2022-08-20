@@ -24,6 +24,8 @@ export const cartReducer = (state=defaultState,action:any) => {
             return {...state,totalPrice:action.payload}
         case "CHANGE__QUANTITY__ID" :
             return {...state,changeQuantityItem:action.payload}
+        case "GET__LOCAL__STORAGE" :
+            return {...state,cart:action.payload}
         case "CHANGE__QUANTITY__ITEM" :
             const findProperItem1 = getProper(state,state.changeQuantityItem.id,state.changeQuantityItem.selectedSize)
             if(findProperItem1) {

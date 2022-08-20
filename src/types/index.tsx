@@ -24,10 +24,15 @@ export interface ICart {
     changeQuantityItem:any
 }
 
+export interface IWishlist {
+    wishlist:clothes[]
+}
+
 export interface IReducers {
     clothesReducer:IProducts
     filterReducer:IFilter
     cartReducer:ICart
+    wishlistReducer:IWishlist
 }
 
 export type clothesCart = {

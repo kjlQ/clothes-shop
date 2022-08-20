@@ -1,4 +1,4 @@
-.shop {
+.shop , .wishlist {
   &__container {
     max-width: 1200px;
     justify-content: center;
@@ -114,8 +114,15 @@
       margin: auto;
       border: 1px solid rgb(238, 238, 238);
       width: 202px;
+      position: relative;
       @include mobile {
         width: auto;
+      }
+      .delete {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
       }
       &__image {
         height: 270px;
@@ -140,5 +147,15 @@
         }
       }
     }
+  }
+}
+.wishlist {
+  width: 60%;
+  margin: 70px auto 0;
+  @include tablet-pc {
+    width: 90%;
+  }
+  h1 {
+    padding: 0 0 20px;
   }
 }

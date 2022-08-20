@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {IReducers} from "../types";
+import {useEffect} from "react";
 
 export default function AddButton({item,selectedSize}:any) {
     const dispatch = useDispatch()
@@ -16,7 +17,9 @@ export default function AddButton({item,selectedSize}:any) {
         }
         dispatch({type:"CART__ADD",payload:itemPush})
     }
-    console.log(cart)
+    useEffect(()=> {
+        cart.length && localStorage.setItem("cart",JSON.stringify(cart))
+    },[cart,addToCart])
 
     return (
         <button className="button" onClick={()=>addToCart()}>

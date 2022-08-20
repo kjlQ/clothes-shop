@@ -1,16 +1,14 @@
 import {Link} from "react-router-dom";
 import React from "react";
-import {useSelector} from "react-redux";
-import {IReducers} from "../types";
 
 export interface IProps {
     title:string
     action:()=>void
     link:string
-    cartLength?:any
+    count?:any
 }
 
-const headerButton = ({title,action,link,cartLength}:IProps) => {
+const headerButton = ({title,action,link,count}:IProps) => {
     return(
         <div className="links__button">
             <button onClick={()=>action()}>
@@ -18,7 +16,7 @@ const headerButton = ({title,action,link,cartLength}:IProps) => {
                     {title}
                 </Link>
             </button>
-            {cartLength ? <span className='header-count'>{cartLength}</span> :''}
+            {count ? <span className='header-count'>{count}</span> :''}
         </div>
     )
 }

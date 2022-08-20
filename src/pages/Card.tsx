@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
 import axios from "axios";
-import {clothes} from '../types'
+import {clothes, IReducers} from '../types'
 import AddButton from "../components/AddButton";
 import {internationalSizes,englishSizes} from "../assets/sizes";
+import WishlistButton from "../components/WishlistButton";
+import {useSelector} from "react-redux";
 
 const Card = () => {
     let {id} = useParams()
     const [item,setItem] = useState<clothes>()
     const [availableSizes,setAvailableSizes] = useState<string[]>([])
     const [selectedSize,setSelectedSize] = useState<string>("")
+    const {wishlist} = useSelector((state:IReducers)=>state.wishlistReducer)
     useEffect(()=> {
         async function fetchData() {
             const data = await axios.get(`https://62b1890ec7e53744afbb3fa1.mockapi.io/clothes?id=${id}`)
@@ -50,7 +53,10 @@ const Card = () => {
                             {availableSizes.map((size:string)=><li className={size===selectedSize ? "selected-size":''} onClick={()=>setSelectedSize(size)}>{size}</li>)}
                         </ul>
                     </div>
-                    <AddButton item={item} selectedSize={selectedSize} />
+                    <div className="card__buttons">
+                        <AddButton item={item} selectedSize={selectedSize} />
+                        <WishlistButton item={item} />
+                    </div>
                 </div>
             </div>
         </div>

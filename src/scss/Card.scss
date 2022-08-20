@@ -1,4 +1,16 @@
 .card {
+  &__buttons{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 20px;
+    @include mobile-medium {
+      align-items: center;
+    }
+    @include tablet-sm {
+      margin: 20px 0;
+    }
+  }
   &__container{
     max-width: 800px;
     margin: auto;
