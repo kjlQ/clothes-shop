@@ -84,8 +84,14 @@
         color: rgba(119, 119, 119);
       }
       .size-n-quantity {
+        display: flex;
         .quantity {
           cursor: pointer;
+          display: flex;
+          align-items: center;
+          svg {
+            width: 12px;
+          }
         }
         button {
           padding: 3px 10px;
