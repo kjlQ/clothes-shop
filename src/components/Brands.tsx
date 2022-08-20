@@ -1,7 +1,10 @@
 import React from "react";
 import Checkbox from "./Checkbox";
+import {useSelector} from "react-redux";
+import {IReducers} from "../types";
 
 const Brands = () => {
+
     return(
         <div className="brands">
             <h2>

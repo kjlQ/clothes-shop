@@ -1,16 +1,16 @@
 import React from 'react'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {IReducers} from "../types";
 const Checkbox = ({type,title}:any) => {
     const dispatch = useDispatch()
-
+    const {brand} =useSelector((state:IReducers)=>state.filterReducer)
     const handleBrand = () => {
-        type==='brand'&& dispatch({type:'changeBrand',payload:title.split(" ")[0]})
-        type==='category'&& dispatch({type:'changeCategory',payload:title.split(" ")[0]})
+        dispatch({type:'changeBrand',payload:title.split(" ")[0]})
     }
 
     return (
         <div className="checkbox">
-            <input type="checkbox" className="check" onChange={()=>handleBrand()}/>
+            <input checked={Boolean(brand.includes(title.split(" ")[0]))} type="checkbox" className="check" onChange={()=>handleBrand()}/>
             <label htmlFor="check7" className="label">
                 <svg width="30" height="30" viewBox="0 0 100 100">
                     <rect x="30" y="20" width="50" height="50" stroke="black" fill="none"/>
