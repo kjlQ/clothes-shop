@@ -1,11 +1,22 @@
 import ProductCard from "../components/ProductCard";
-import React from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 import {IReducers} from "../types";
 const wishlistEmpty = require('../assets/image/wishlist-empty.png')
 
 const Wishlist = () => {
+    const dispatch = useDispatch()
     const {wishlist} = useSelector((state:IReducers)=>state.wishlistReducer)
+    console.log(wishlist)
+
+    useEffect(()=>{
+        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'')})
+    },[])
+
+    useEffect(()=> {
+        localStorage.setItem('wishlistLocal',JSON.stringify(wishlist))
+    },[wishlist])
+
     if(!wishlist[0]) {
         return(
             <img className="empty-cart" src={wishlistEmpty} alt=""/>
@@ -18,7 +29,7 @@ const Wishlist = () => {
             </div>
             <div className="sort__prod">
                 <div className="products">
-                    {wishlist && wishlist.map((item: any) => <ProductCard cross={true} {...item} /> )}
+                    {wishlist.map((item: any) => <ProductCard cross={true} {...item} /> )}
                 </div>
             </div>
         </div>

@@ -1,11 +1,16 @@
 import {Link} from "react-router-dom";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import HeaderButton from "./HeaderButton";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {IReducers} from "../types";
 
 export default function Header() {
     const [ show , setShow] = useState(false)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'')})
+        dispatch({type:"GET__LOCAL__STORAGE",payload:JSON.parse(localStorage.getItem('cart') || '')})
+    },[])
     function changeShow() {
         setShow((prev:boolean)=>!prev)
     }
@@ -17,7 +22,7 @@ export default function Header() {
                 <HeaderButton action={changeShow} link={'/'} title={'Home'} />
                 <HeaderButton action={changeShow} link={'/shop'} title={'Shop'} />
                 <HeaderButton action={changeShow} link={'/cart'} title={'Cart'} count={cart.reduce((sum,obj)=>sum+obj.count,0)} />
-                <HeaderButton action={changeShow} link={'/wishlist'} title={'Wishlist'} count={wishlist.length} />
+                <HeaderButton action={changeShow} link={'/wishlist'} title={'Wishlist'} count={wishlist.length}/>
                 <div className="show__header" onClick={()=>changeShow()}>
                     <button>
                         Menu

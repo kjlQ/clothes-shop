@@ -1,9 +1,20 @@
 import {useDispatch, useSelector} from "react-redux";
 import {IReducers} from "../types";
+import {useEffect} from "react";
 
 const WishlistButton = ({item}:any) => {
     const {wishlist} = useSelector((state:IReducers)=>state.wishlistReducer)
     const dispatch = useDispatch()
+    const handleWishlist = () => {
+        dispatch({type:"WISHLIST__ADD",payload:item})
+    }
+    useEffect(()=>{
+        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'')})
+    },[])
+    useEffect(()=> {
+        localStorage.setItem('wishlistLocal',JSON.stringify(wishlist))
+    },[wishlist])
+
     return(
         <div className="wishlist__button">
             {/*<button onClick={()=>dispatch({type:"WISHLIST__ADD",payload:item})}>*/}
@@ -11,7 +22,7 @@ const WishlistButton = ({item}:any) => {
             {/*</button>*/}
             <div id="main-content">
                 <div>
-                    <input checked={Boolean( wishlist.length && wishlist.find((obj:any)=>item.id===obj.id))} type="checkbox" id="checkbox" onClick={()=>dispatch({type:"WISHLIST__ADD",payload:item})}/>
+                    <input checked={Boolean( wishlist.length && wishlist.find((obj:any)=>item.id===obj.id))} type="checkbox" id="checkbox" onClick={()=>handleWishlist()}/>
                     <label htmlFor="checkbox">
                         <svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
                             <g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">

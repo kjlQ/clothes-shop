@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './App.scss';
 import Home from './pages/Home'
 import Shop from './pages/Shop'
@@ -7,8 +7,10 @@ import Header from "./components/Header";
 import Card from "./pages/Card";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import {useDispatch} from "react-redux";
 
-export default function App() {
+const App = () => {
+
   return (
       <div className="App">
           <BrowserRouter >
@@ -24,3 +26,4 @@ export default function App() {
       </div>
   );
 }
+export default App

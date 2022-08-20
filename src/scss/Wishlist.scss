@@ -1,0 +1,16 @@
+.wishlist {
+  width: 60%;
+  margin: 70px auto 0;
+  @include tablet-pc {
+    width: 90%;
+  }
+  h1 {
+    padding: 0 0 20px;
+  }
+  &__text {
+    padding: 0 0 20px;
+  }
+}
+.Wishlist {
+  right: -2px !important;
+}

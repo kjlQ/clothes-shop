@@ -16,7 +16,7 @@ const headerButton = ({title,action,link,count}:IProps) => {
                     {title}
                 </Link>
             </button>
-            {count ? <span className='header-count'>{count}</span> :''}
+            {count ? <span className={ `${title} header-count`}>{count}</span> :''}
         </div>
     )
 }

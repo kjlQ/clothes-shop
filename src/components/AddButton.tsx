@@ -18,7 +18,7 @@ export default function AddButton({item,selectedSize}:any) {
         dispatch({type:"CART__ADD",payload:itemPush})
     }
     useEffect(()=> {
-        cart.length && localStorage.setItem("cart",JSON.stringify(cart))
+        localStorage.setItem("cart",JSON.stringify(cart))
     },[cart,addToCart])
 
     return (
