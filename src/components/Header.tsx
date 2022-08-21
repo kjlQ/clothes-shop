@@ -8,8 +8,8 @@ export default function Header() {
     const [ show , setShow] = useState(false)
     const dispatch = useDispatch()
     useEffect(()=>{
-        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'')})
-        dispatch({type:"GET__LOCAL__STORAGE",payload:JSON.parse(localStorage.getItem('cart') || '')})
+        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'[]')})
+        dispatch({type:"GET__LOCAL__STORAGE",payload:JSON.parse(localStorage.getItem('cart') || '[]')})
     },[])
     function changeShow() {
         setShow((prev:boolean)=>!prev)

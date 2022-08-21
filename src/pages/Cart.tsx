@@ -10,7 +10,7 @@ const Cart = () => {
     const {cart,totalPrice} = useSelector((state:IReducers)=>state.cartReducer)
     const dispatch = useDispatch()
     useEffect(()=> {
-        dispatch({type:"GET__LOCAL__STORAGE",payload:JSON.parse(localStorage.getItem('cart') || '')})
+        dispatch({type:"GET__LOCAL__STORAGE",payload:JSON.parse(localStorage.getItem('cart') || '[]')})
     },[])
     useEffect(()=> {
         const total = cart.reduce((sum,obj)=>sum+(obj.count*Number(obj.price)),0)

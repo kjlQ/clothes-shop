@@ -9,9 +9,14 @@ const Wishlist = () => {
     const {wishlist} = useSelector((state:IReducers)=>state.wishlistReducer)
     console.log(wishlist)
 
-    useEffect(()=>{
-        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'')})
-    },[])
+    try {
+        useEffect(()=>{
+            dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'[]')})
+        },[])
+    }
+    catch (e) {
+        console.log(e)
+    }
 
     useEffect(()=> {
         localStorage.setItem('wishlistLocal',JSON.stringify(wishlist))

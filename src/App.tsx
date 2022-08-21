@@ -7,10 +7,8 @@ import Header from "./components/Header";
 import Card from "./pages/Card";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
-import {useDispatch} from "react-redux";
 
 const App = () => {
-
   return (
       <div className="App">
           <BrowserRouter >

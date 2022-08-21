@@ -9,7 +9,7 @@ const WishlistButton = ({item}:any) => {
         dispatch({type:"WISHLIST__ADD",payload:item})
     }
     useEffect(()=>{
-        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'')})
+        dispatch({type:'GET__LOCALSTORAGE__WISHLIST',payload:JSON.parse(localStorage.getItem('wishlistLocal')||'[]')})
     },[])
     useEffect(()=> {
         localStorage.setItem('wishlistLocal',JSON.stringify(wishlist))
