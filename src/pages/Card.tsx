@@ -42,8 +42,23 @@ const Card = () => {
     }
     return(
         <div className="card">
+
             <div className="card__container">
-                <img src={item.imageURL} alt=""/>
+                <div className="tilt-box-wrap">
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <span className="t_over"></span>
+                    <div className="tilt-box">
+                        <img src={item.imageURL} alt=""/>
+                    </div>
+                </div>
+
                 <div className="info">
                     <h1>{item.name}</h1>
                     <h2>{item.brand}</h2>

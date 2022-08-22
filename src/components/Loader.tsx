@@ -7,6 +7,8 @@ const Loader = () => (
         viewBox="0 0 230 371"
         backgroundColor="#c2c2c2"
         foregroundColor="#ecebeb"
+        height='100%'
+        width='202px'
     >
         <rect x="0" y="0" rx="6" ry="6" width="228" height="292" />
         <rect x="-1" y="299" rx="5" ry="5" width="162" height="22" />

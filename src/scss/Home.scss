@@ -1,6 +1,10 @@
 .video {
   position: absolute;
   width: 100%;
+  &-height {
+    display: block;
+    height: 100vh;
+  }
   &__text {
     position: absolute;
     z-index: 2;
