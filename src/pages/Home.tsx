@@ -24,6 +24,11 @@ export default function Home() {
                 </div>
             </div>
             <span className="video-height">video</span>
+            <div className="marquee-container">
+                <p className="marquee">
+                    mode - blueprint - design - game - plan - ground - plan - intrigue - layout - line - model - plan - plot - program - route - scheme -
+                </p>
+            </div>
         </div>
     )
 }
