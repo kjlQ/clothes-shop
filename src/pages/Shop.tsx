@@ -10,7 +10,6 @@ import Filter from "../components/Filter";
 
 export default function Shop() {
     const {products,loading} = useSelector((state:IReducers) => state.clothesReducer)
-
     const {brand,sort_by} = useSelector((state:IReducers) => state.filterReducer)
     const dispatch = useDispatch()
     useEffect(()=> {
@@ -24,7 +23,7 @@ export default function Shop() {
                 .catch((e) => {
                     console.log(e)
                     dispatch({type:'setLoading',payload:false})
-                });
+                })
         }
         fetchData()
     },[brand,sort_by])

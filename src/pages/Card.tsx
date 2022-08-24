@@ -5,7 +5,8 @@ import {clothes, IReducers} from '../types'
 import AddButton from "../components/AddButton";
 import {internationalSizes,englishSizes} from "../assets/sizes";
 import WishlistButton from "../components/WishlistButton";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import Loading from "../components/Loading";
 
 const Card = () => {
     let {id} = useParams()
@@ -13,6 +14,7 @@ const Card = () => {
     const [availableSizes,setAvailableSizes] = useState<string[]>([])
     const [selectedSize,setSelectedSize] = useState<string>("")
     const {wishlist} = useSelector((state:IReducers)=>state.wishlistReducer)
+    const dispatch = useDispatch()
     useEffect(()=> {
         async function fetchData() {
             const data = await axios.get(`https://62b1890ec7e53744afbb3fa1.mockapi.io/clothes?id=${id}`)
@@ -35,11 +37,10 @@ const Card = () => {
 
     if(!item){
         return (
-            <>
-                wait...
-            </>
+            <Loading />
         )
     }
+
     return(
         <div className="card">
 

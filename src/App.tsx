@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './App.scss';
 import Home from './pages/Home'
 import Shop from './pages/Shop'
@@ -7,6 +7,9 @@ import Header from "./components/Header";
 import Card from "./pages/Card";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
+import {useSelector} from "react-redux";
+import {IReducers} from "./types";
+import Loading from "./components/Loading";
 
 const App = () => {
   return (

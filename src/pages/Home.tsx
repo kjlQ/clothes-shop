@@ -1,7 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function Home() {
     const video =  require("../assets/video/walkin-girl.mp4");
+    const img =  require("../assets/video/Preloader.gif");
+    const [load,setLoad] = useState<boolean>(true)
+    setTimeout(()=> {
+        setLoad(false)
+    },2500)
+    // if(load) {
+    //     return(
+    //         <div className="site-preloader">
+    //             <img src={img} alt=""/>
+    //         </div>
+    //     )
+    // }
     return (
         <div className="home">
             <div className="video">
@@ -12,23 +24,6 @@ export default function Home() {
                 </div>
             </div>
             <span className="video-height">video</span>
-
-            123
-            <div className="tilt-box-wrap">
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <span className="t_over"></span>
-                <div className="tilt-box">
-                    <strong>Tilt <br/> Effect</strong>
-                </div>
-            </div>
-            123
         </div>
     )
 }
