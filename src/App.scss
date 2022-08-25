@@ -13,6 +13,7 @@
 @import 'scss/components/Overlay';
 @import 'scss/components/WishlistButton';
 @import 'scss/components/Loading';
+@import 'scss/components/PlacedOrder';
 * {
   padding: 0;
   margin: 0;
@@ -43,6 +44,22 @@ a {
       margin: 0 10px;
       cursor: pointer;
     }
+  }
+}
+
+.blue-button{
+  width: fit-content;
+  margin: auto;
+  button {
+    background-color: #5086bd;
+    color: #fff;
+    border: 0;
+    padding: 10px 30px;
+    font-size: 20px;
+    width: 100%;
+    border-radius: 8px;
+    margin: 20px 0 0;
+    cursor: pointer;
   }
 }
 

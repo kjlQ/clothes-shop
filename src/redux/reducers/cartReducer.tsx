@@ -36,6 +36,8 @@ export const cartReducer = (state=defaultState,action:any) => {
             }
         case "REMOVE__ITEM" :
             return {...state,cart:state.cart.filter(item=>item.id !== action.payload.id || item.selectedSize !== action.payload.selectedSize)}
+        case "PLACE__ORDER" :
+            return {...state, cart:[],}
         default:
             return state
     }

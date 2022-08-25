@@ -23,7 +23,7 @@ export default function Home() {
                     Clothes Scope
                 </div>
             </div>
-            <span className="video-height">video</span>
+            <span className="video-height"></span>
             <div className="marquee-container">
                 <p className="marquee">
                     mode - blueprint - design - game - plan - ground - plan - intrigue - layout - line - model - plan - plot - program - route - scheme -

@@ -3,10 +3,13 @@ import {clothesCart, IReducers} from "../types";
 import CartPosition from "../components/CartPosition";
 import {useEffect, useState} from "react";
 import Overlay from "../components/Overlay";
+import {Link} from "react-router-dom";
+import PlacedOrder from "../components/PlacedOrder";
 const emptyImage = require('../assets/image/empty-cart.png')
 
 const Cart = () => {
-    const [showOverlay , setShowOverlay] = useState(false)
+    const [showOverlay , setShowOverlay] = useState<boolean>(false)
+    const [placedOrder , setPlacedOrder] = useState<boolean>(false)
     const {cart,totalPrice} = useSelector((state:IReducers)=>state.cartReducer)
     const dispatch = useDispatch()
     useEffect(()=> {
@@ -18,11 +21,23 @@ const Cart = () => {
         localStorage.setItem("cart",JSON.stringify(cart))
     },[showOverlay,cart])
 
+    const handlePlaceOrder = () => {
+        dispatch({type:'PLACE__ORDER'})
+        setPlacedOrder(true)
+    }
+
+    if(placedOrder){
+        return(
+            <PlacedOrder />
+        )
+    }
+
     if(!cart[0]) {
         return(
             <img className="empty-cart" src={emptyImage} alt=""/>
         )
     }
+
     return (
         <div className="cart">
             {showOverlay && <Overlay setShowOverlay={setShowOverlay} />}
@@ -45,8 +60,8 @@ const Cart = () => {
                         <span>Total Amount</span>
                         <span>{totalPrice}$</span>
                     </div>
-                    <div className="submit-order">
-                        <button>
+                    <div className="blue-button submit-button">
+                        <button onClick={()=>handlePlaceOrder()}>
                             place order
                         </button>
                     </div>
