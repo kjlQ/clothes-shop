@@ -1,6 +1,8 @@
 export interface IProducts {
     products:clothes[]
     loading:boolean
+    page:number
+    loadNew:boolean
 }
 export type clothes = {
     price: string

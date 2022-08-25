@@ -5,6 +5,7 @@ const Checkbox = ({type,title}:any) => {
     const dispatch = useDispatch()
     const {brand} =useSelector((state:IReducers)=>state.filterReducer)
     const handleBrand = () => {
+        dispatch({type:"changePage",payload:1})
         dispatch({type:'changeBrand',payload:title.split(" ")[0]})
     }
 

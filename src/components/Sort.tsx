@@ -11,6 +11,7 @@ const Sort = () => {
     const [selectedOption, setSelectedOption] = useState({value:'',label:''});
     const dispatch = useDispatch()
     useEffect(()=>{
+        dispatch({type:"changePage",payload:1})
         dispatch({type:'changeSortBy',payload:selectedOption.value})
     },[selectedOption])
     return (
