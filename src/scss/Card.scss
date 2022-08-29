@@ -2,7 +2,7 @@
   &__buttons{
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-nd;
     gap: 20px;
     @include mobile-medium {
       align-items: center;
@@ -60,10 +60,16 @@
     transition: all 0.6s ease-out;
     perspective: 1000px;
     padding: 40px 0;
+    @include mobile-medium{
+      width: 100%;
+    }
   }
   .tilt-box-wrap:hover{
     transition: all 0.3s linear;
     transform: scale(1.1);
+    @include tablet {
+      transform: scale(1);
+    }
   }
   .tilt-box{
     width: 100%;
@@ -109,4 +115,9 @@
   .t_over:nth-child(7):hover ~ .tilt-box{transform:rotateX(10deg) rotateY(10deg);}
   .t_over:nth-child(8):hover ~ .tilt-box{transform: rotateX(10deg) rotateY(0deg)}
   .t_over:nth-child(9):hover ~ .tilt-box{transform: rotateX(10deg) rotateY(-10deg)}
+  @include tablet {
+    .t_over {
+      display: none;
+    }
+  }
 }

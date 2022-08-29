@@ -15,7 +15,7 @@
       width: 100%;
       .sort {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         margin:  0 0 20px;
         &__by {
           &__option {
@@ -118,7 +118,9 @@
       transition:.2s;
       &:hover {
         scale:1.1;
-
+        @include tablet {
+          scale:1;
+        }
       }
       @include mobile {
         width: auto;
@@ -145,10 +147,21 @@
         .title {
           letter-spacing: .5px;
           font-size: 18px;
+          @include tablet {
+            font-size: 24px;
+          }
         }
         .brand {
           letter-spacing: .5px;
           color: rgb(119, 119,119);
+          @include tablet {
+            font-size: 22px;
+          }
+        }
+        .price {
+          @include tablet {
+            font-size: 22px;
+          }
         }
       }
     }
