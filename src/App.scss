@@ -47,6 +47,26 @@ a {
   }
 }
 
+.toTheTop{
+  position: fixed;
+  bottom: 23px;
+  right: 34px;
+  cursor: pointer;
+  opacity: 0;
+  transition: .3s;
+  z-index: 2;
+  height: 30px;
+  background: #5086bd;
+  border-radius: 50%;
+  @include tablet {
+    height: 50px;
+    right: 20px;
+  }
+  &-visible {
+    opacity: 1;
+  }
+}
+
 .blue-button{
   width: fit-content;
   margin: auto;

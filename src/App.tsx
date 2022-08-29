@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './App.scss';
 import Home from './pages/Home'
 import Shop from './pages/Shop'
@@ -7,15 +7,14 @@ import Header from "./components/Header";
 import Card from "./pages/Card";
 import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
-import {useSelector} from "react-redux";
-import {IReducers} from "./types";
-import Loading from "./components/Loading";
+import ToTheTop from "./components/ToTheTop";
 
 const App = () => {
   return (
       <div className="App">
           <BrowserRouter >
               <Header />
+              <ToTheTop />
               <Routes >
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<Shop />} />

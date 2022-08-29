@@ -27,4 +27,5 @@ const Checkbox = ({type,title}:any) => {
         </div>
     )
 }
+
 export default Checkbox
