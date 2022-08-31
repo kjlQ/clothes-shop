@@ -11,6 +11,8 @@
     }
   }
   &__button {
+    display: flex;
+    align-items: flex-end;
     label{
       position: static;
     }
