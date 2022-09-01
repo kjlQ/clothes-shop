@@ -19,6 +19,10 @@ export interface IFilter {
     sort_by:string,
 }
 
+export interface ILoading {
+    loading:boolean
+}
+
 export interface ICart {
     cart:clothesCart[]
     totalPrice:number
@@ -35,6 +39,7 @@ export interface IReducers {
     filterReducer:IFilter
     cartReducer:ICart
     wishlistReducer:IWishlist
+    loadingReducer:ILoading
 }
 
 export type clothesCart = {

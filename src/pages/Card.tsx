@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import {clothes, IReducers} from '../types'
 import AddButton from "../components/AddButton";
-import {internationalSizes,englishSizes} from "../assets/sizes";
+import {internationalSizes,englishSizes} from "../assets/info/sizes";
 import WishlistButton from "../components/WishlistButton";
 import {useDispatch, useSelector} from "react-redux";
 import Loading from "../components/Loading";

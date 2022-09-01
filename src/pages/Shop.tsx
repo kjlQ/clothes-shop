@@ -32,7 +32,7 @@ export default function Shop() {
     },[brand,sort_by,page])
 
     useEffect(()=>{
-        console.log(load)
+        // console.log(load)
     },[load])
 
     return(
