@@ -23,6 +23,7 @@ export default function Header() {
                 <HeaderButton action={changeShow} link={'/shop'} title={'Shop'} />
                 <HeaderButton action={changeShow} link={'/cart'} title={'Cart'} count={cart.reduce((sum,obj)=>sum+obj.count,0)} />
                 <HeaderButton action={changeShow} link={'/wishlist'} title={'Wishlist'} count={wishlist.length}/>
+                <HeaderButton action={changeShow} link={'/profile'} title={'Profile'}/>
                 <div className="show__header" onClick={()=>changeShow()}>
                     <button>
                         Menu

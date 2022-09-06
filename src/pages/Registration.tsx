@@ -1,12 +1,9 @@
-import React, {useRef, useState} from 'react';
-import {login, logout, signup, useAuth} from "../firebase";
-import {useDispatch, useSelector} from "react-redux";
-import {IReducers} from "../types";
+import React, {useRef} from 'react';
+import {login, logout, signup} from "../firebase";
+import {useDispatch} from "react-redux";
 
 const Registration = () => {
     const dispatch = useDispatch()
-    const {loading} = useSelector((state:IReducers)=>state.loadingReducer)
-    const currentUser = useAuth();
 
     const emailRefLog = useRef();
     const passwordRefLog = useRef();
@@ -42,17 +39,15 @@ const Registration = () => {
         dispatch({type:"changeLoad",payload:false})
 
     }
+
     return (
         <div className="sign-form">
-            <button onClick={()=>handleLogout()}>Logout</button>
-            {/*@ts-ignore*/}
-            <div>Currently logged in as: { currentUser?.email } </div>
             <div className="section">
                 <div className="container">
                     <div className="row full-height justify-content-center">
                         <div className="col-12 text-center align-self-center py-5">
                             <div className="section pb-5 pt-5 pt-sm-2 text-center">
-                                <h6 className="mb-0 pb-3"><span>Sign Up </span><span>Log In</span></h6>
+                                <h6><span>Sign Up </span><span>Log In</span></h6>
                                 <input className="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
                                 <label htmlFor="reg-log"></label>
                                 <div className="card-3d-wrap mx-auto">

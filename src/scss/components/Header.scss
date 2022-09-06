@@ -11,6 +11,7 @@
 .links {
   display: flex;
   list-style: none;
+  flex-wrap: wrap;
   @include mobile-medium {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -72,8 +73,11 @@
     -webkit-box-align: center;
     align-items: center;
     transition: all 0.3s ease 0s;
-    @include mobile-medium {
+    @include mobile-large {
       top: 119px;
+    }
+    @include mobile-medium {
+      top: 179px;
     }
     button {
       color: #1b1b1b;
@@ -85,7 +89,10 @@
 }
 .not-show {
   top: -60px;
-  @include mobile-medium {
+  @include mobile-large {
     top: -119px;
+  }
+  @include mobile-medium {
+    top: -179px;
   }
 }

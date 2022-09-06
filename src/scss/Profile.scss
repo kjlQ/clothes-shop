@@ -1,0 +1,16 @@
+.profile {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  p {
+    margin: 20px 0 0 0;
+  }
+  img {
+    height: 50px;
+  }
+  .blue-button {
+    margin: 0;
+  }
+}

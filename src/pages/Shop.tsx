@@ -31,10 +31,6 @@ export default function Shop() {
         fetchData()
     },[brand,sort_by,page])
 
-    useEffect(()=>{
-        // console.log(load)
-    },[load])
-
     return(
         <div className="shop">
             <div className="shop__container">
