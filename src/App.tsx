@@ -11,19 +11,11 @@ import ToTheTop from "./components/ToTheTop";
 import Registration from "./pages/Registration";
 import Profile from "./pages/Profile";
 
-import {auth, logout} from "./firebase";
-import {useDispatch} from "react-redux";
+import {auth} from "./firebase";
 import {useAuthState} from "react-firebase-hooks/auth";
 
 const App = () => {
-    const dispatch = useDispatch()
-
-    const [user,loading,error] = useAuthState(auth)
-
-
-    console.log('loading=>',loading)
-    console.log('user=>',user)
-    console.log('error=>',error)
+    const [user,loading] = useAuthState(auth)
     if(!user && !loading) {
         return(
             <Registration />

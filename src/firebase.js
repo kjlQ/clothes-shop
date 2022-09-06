@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-import {useDispatch, useSelector} from "react-redux";
+import {useAuthState} from "react-firebase-hooks/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCP8RPNpOdPyCYJKgMX9tIjH7PaypEzE0c",
@@ -37,3 +37,5 @@ export function useAuth() {
     }, [])
     return currentUser;
 }
+
+

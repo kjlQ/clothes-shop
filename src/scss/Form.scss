@@ -105,6 +105,9 @@
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     transition: all 600ms ease-out;
+    @include mobile-m {
+      width: 300px;
+    }
   }
   .card-front, .card-back {
     width: 100%;
@@ -140,6 +143,9 @@
     transform: translate3d(0, -50%, 35px) perspective(100px);
     z-index: 20;
     display: block;
+    @include mobile-m {
+      width: 215px;
+    }
   }
 
 
@@ -263,6 +269,9 @@
     background-color: #ffeba7;
     color: #102770;
     box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    @include mobile-m {
+      width: 235px;
+    }
   }
 
   .logo {
